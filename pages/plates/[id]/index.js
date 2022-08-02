@@ -50,7 +50,7 @@ const Plate = () => {
 
 	return (
 		<Container maxWidth="md">
-			<p>{ParseId(id) + " Plate"}</p>
+			<p>{ParseId(id)}</p>
 			<Link href="/">
 				<Button variant="contained">
 					Back
