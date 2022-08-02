@@ -3,7 +3,7 @@ import Copper from './copper.js'
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItem from '@mui/material/ListItem';
 
-const HomeCard = ({name, id}) => {
+const HomeCard = ({name, id, key}) => {
 	return (
         <div>
 			<ListItem secondaryAction={<Copper id={id}/>} key={id}>

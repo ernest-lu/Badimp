@@ -40,7 +40,7 @@ const Index = (props) => {
 			<List>{
 				searchPlates
 					.map((plate) => 
-						<HomeCard name={ParseId(plate.id)} id={plate.id}/>)
+						<HomeCard name={ParseId(plate.id)} id={plate.id} key={plate.id}/>)
 			}</List>
 		</Container>
 	);
