@@ -3,7 +3,7 @@ import SearchBar from "../components/searchBar.js";
 import {useState, useEffect} from 'react';
 import ParseId from '../Helpers.js';
 
-export default function(props) {
+const Index = (props) => {
 	const [plates, setPlates] = useState([]);
 	const [searchPlates, setSearchPlates] = useState([]);
 
@@ -45,3 +45,6 @@ export default function(props) {
 		</div>
 	);
 };
+
+Index.displayName = "Badimp";
+export default Index;

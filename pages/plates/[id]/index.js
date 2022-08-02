@@ -4,6 +4,7 @@ import { CodeBlock, dracula } from "react-code-blocks";
 import { useEffect, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
+//had to copy because doesnt work for some reason with dynamik
 function Copper({id}) {
 	const url = "https://raw.githubusercontent.com/ernest-lu/TEM-PLATES/main/";
 	const fileLocation = url + id + ".badimp"; 

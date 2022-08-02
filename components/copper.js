@@ -13,7 +13,7 @@ export default function Copper({id}) {
 	}, []);
 
       return (
-            <CopyToClipboard text={text}>
+        <CopyToClipboard text={text}>
 			<button>
                   	{"Copy"}
                   </button>
