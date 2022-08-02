@@ -6,7 +6,7 @@ import ListItem from '@mui/material/ListItem';
 const HomeCard = ({name, id}) => {
 	return (
         <div>
-			<ListItem secondaryAction={<Copper id={id}/>}>
+			<ListItem secondaryAction={<Copper id={id}/>} key={id}>
 				<Link href={"/plates/" + id}>	
 					<ListItemButton>
 						{name}
