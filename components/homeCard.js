@@ -1,4 +1,4 @@
-import Link from 'next/Link';
+import Link from 'next/link';
 import Copper from './copper.js'
 
 const HomeCard = ({name, id}) => {

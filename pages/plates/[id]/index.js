@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import Link from 'next/Link';
+import Link from 'next/link';
 import { CodeBlock, dracula } from "react-code-blocks";
 import { useEffect, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
