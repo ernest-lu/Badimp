@@ -1,17 +1,19 @@
 import Link from 'next/link';
 import Copper from './copper.js'
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItem from '@mui/material/ListItem';
 
 const HomeCard = ({name, id}) => {
-      return (
-            <div>
-            <Link href={"/plates/" + id}> 
-                  <button>
-                        {name}
-                  </button>
-            </Link>
-            <Copper id={id}/>
-            </div>
-
+	return (
+        <div>
+			<ListItem secondaryAction={<Copper id={id}/>}>
+				<Link href={"/plates/" + id}>	
+					<ListItemButton>
+						{name}
+					</ListItemButton>
+				</Link>
+			</ListItem>
+        </div>
       );
 };   
 

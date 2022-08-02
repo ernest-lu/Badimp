@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import IconButton from '@mui/material/IconButton';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';	
 
 export default function Copper({id}) {
 	const url = "https://raw.githubusercontent.com/ernest-lu/TEM-PLATES/main/";
@@ -14,9 +16,9 @@ export default function Copper({id}) {
 
       return (
         <CopyToClipboard text={text}>
-			<button>
-                  	{"Copy"}
-                  </button>
+			<IconButton edge="end" aria-label="copy">
+                <ContentCopyIcon />
+            </IconButton>
 		</CopyToClipboard>
       );
 }

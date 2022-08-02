@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import TextField from '@mui/material/TextField';
 
 const SearchBar = ({funky, placeholder}) => {
 	const [query, setQuery] = useState("");
@@ -8,10 +9,14 @@ const SearchBar = ({funky, placeholder}) => {
 	}, [query]);
 
     return (
-		<input 
-			placeholder={placeholder}
+		<TextField 
+			label={placeholder}
 			value={query}
-			onChange={(event) => setQuery(event.target.value)} 
+			onChange={(event) => setQuery(event.target.value)}
+			size={"large"} 
+			variant={"outlined"}
+			margin={"dense"}
+			fullWidth={true}
 		/>
     );
 };   

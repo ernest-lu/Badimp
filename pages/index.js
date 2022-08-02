@@ -2,6 +2,8 @@ import HomeCard from "../components/homeCard.js";
 import SearchBar from "../components/searchBar.js";
 import {useState, useEffect} from 'react';
 import ParseId from '../Helpers.js';
+import List from '@mui/material/List';
+import Container from '@mui/material/Container';
 
 const Index = (props) => {
 	const [plates, setPlates] = useState([]);
@@ -30,19 +32,17 @@ const Index = (props) => {
 	};
 
 	return (
-		<div> <h1>badimp</h1>
+		<Container maxWidth="sm"> <h1>badimp</h1>
 			<SearchBar
 				funky={searchChange}
 				placeholder={"Hi me"}
 			/>
-			<ul>{
-				searchPlates.map((plate) => 
-					<li key={plate.id}>
-						<HomeCard name={ParseId(plate.id)} id={plate.id}/>
-					</li>
-				)
-			}</ul>
-		</div>
+			<List>{
+				searchPlates
+					.map((plate) => 
+						<HomeCard name={ParseId(plate.id)} id={plate.id}/>)
+			}</List>
+		</Container>
 	);
 };
 
