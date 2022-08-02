@@ -1,7 +1,28 @@
 import { useRouter } from 'next/router';
 import Link from 'next/Link';
-import { CopyBlock, nord } from "react-code-blocks";
+import { CodeBlock, dracula } from "react-code-blocks";
 import { useEffect, useState } from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+
+function Copper({id}) {
+	const url = "https://raw.githubusercontent.com/ernest-lu/TEM-PLATES/main/";
+	const fileLocation = url + id + ".badimp"; 
+	const [text, setText] = useState("");
+	useEffect(() => {
+		const fetchData = async () => await fetch(fileLocation)
+			.then(res => res.text())
+			.then(resText => setText(resText));
+		fetchData().catch(console.error);
+	}, []);
+
+      return (
+        <CopyToClipboard text={text}>
+			<button>
+                {"Copy"}
+            </button>
+		</CopyToClipboard>
+      );
+}
 
 const Plate = () => {
 	const router = useRouter();
@@ -23,22 +44,22 @@ const Plate = () => {
 	return (
 		<div>
 			<p>Plate: {id}</p>
-			<CopyBlock
-				language={"cpp"}
-				text={raw}
-				showLineNumber={true}
-				theme={nord}
-				wrapLines={true}
-				codeBlock
-			/>
-
 			<Link href="/">
 				<button>
 				back
 				</button>
 			</Link>
+			<Copper id={id}/>
+			<CodeBlock
+				language={"cpp"}
+				text={raw}
+				showLineNumber={true}
+				theme={dracula}
+				wrapLines={true}
+				codeBlock
+			/>
 		</div>
   	);
 }
 
-export default Plate
+export default Plate;
