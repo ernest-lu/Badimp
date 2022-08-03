@@ -28,6 +28,10 @@ const Index = (props) => {
 		"I drive a mclalbert" : "i drive a mclaren",
 		"Yodaniel top jacked" : "yorick top main",
 		"Slim Hyz snack" : "slim jim snack",
+		"Bert has bert driver's license" : "bert has his driver's license",
+		"rick hyz dan noodles" : "dan dan mein noodles",
+		"Mert Mouse clubhouse" : "mickey mouse clubhouse",
+		"dlz9345 has int in bert name" : "meintgl has int in his name"
 	};
 	const [mein, setMein] = useState("");
 	useEffect(() => {
