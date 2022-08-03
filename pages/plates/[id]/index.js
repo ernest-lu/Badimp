@@ -8,13 +8,14 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import ParseId from '../../../Helpers.js';
-
+import Footer from "../../../components/footer.js";
 
 //had to copy because doesnt work for some reason with dynamik
 function Copper({id}) {
 	const url = "https://raw.githubusercontent.com/ernest-lu/TEM-PLATES/main/";
 	const fileLocation = url + id + ".badimp"; 
 	const [text, setText] = useState("");
+	
 	useEffect(() => {
 		const fetchData = async () => await fetch(fileLocation)
 			.then(res => res.text())
@@ -57,14 +58,16 @@ const Plate = () => {
 				</Button>
 			</Link>
 			<Copper id={id}/>
-			<CodeBlock
-				language={"cpp"}
-				text={raw}
-				showLineNumber={true}
-				theme={dracula}
-				wrapLines={true}
-				codeBlock
-			/>
+			<div style={{ fontFamily: 'Monospace'}}>
+				<CodeBlock
+					language={"cpp"}
+					text={raw}
+					showLineNumber={true}
+					theme={dracula}
+					wrapLines={true}
+				/>
+			</div>
+			<Footer/>
 		</Container>
   	);
 }

@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react';
 import ParseId from '../Helpers.js';
 import List from '@mui/material/List';
 import Container from '@mui/material/Container';
+import Footer from "../components/footer.js";
 
 const Index = (props) => {
 	const [plates, setPlates] = useState([]);
@@ -19,6 +20,20 @@ const Index = (props) => {
 	useEffect(() => {
 		setSearchPlates(plates);
 	}, [plates]);
+	
+	var meins = {
+		"Costa Hyza" : "costa rica",
+		"SWE 9345alb" : "swe intern",
+		"oumani bert() { return 0; }" : "int main() { return 0; }",
+		"I drive a mclalbert" : "i drive a mclaren",
+		"Yodaniel top jacked" : "yorick top main",
+		"Slim Hyz snack" : "slim jim snack",
+	};
+	const [mein, setMein] = useState("");
+	useEffect(() => {
+		var index = (Date.now() + getRandomInt()) % Object.keys(meins).length;
+		setMein(Object.keys(meins)[index]);
+	}, []);
 
 	const searchChange = (prefix) => {
 		if (prefix === "") {
@@ -29,22 +44,58 @@ const Index = (props) => {
 			(plate) => (plate.id.indexOf(prefix) !== -1)
 		);
 		setSearchPlates(newPlates);
+
+		if (prefix.toLowerCase() === meins[mein]) {
+			setGenius("YOU ARE A GENIUS !!!")
+		} else {
+			setGenius("");
+		}
 	};
 
+	const refreshMein = (prefix) => {
+		if (prefix.toLowerCase() === meins[mein]) {
+			setGenius("YOU ARE A GENIUS !!!")
+		} else {
+			setGenius("");
+		}
+
+		var newMein = mein;
+		while (newMein === mein) {
+			newMein = Object.keys(meins)[(Date.now() + getRandomInt()) % Object.keys(meins).length];
+		}
+
+		setMein(newMein);
+	};
+
+	const [genius, setGenius] = useState("");
+ 
 	return (
-		<Container maxWidth="sm"> <h1>badimp</h1>
+		<Container maxWidth="sm"> 
+			<h1>Badimp</h1>
 			<SearchBar
 				funky={searchChange}
-				placeholder={"Hi me"}
+				placeholder={mein}
+				refreshFunction={refreshMein}
 			/>
 			<List>{
 				searchPlates
 					.map((plate) => 
 						<HomeCard name={ParseId(plate.id)} id={plate.id} key={plate.id}/>)
 			}</List>
+			<h2>
+				{genius}
+			</h2>
+
+			<Footer>
+
+			</Footer>
 		</Container>
 	);
 };
 
 Index.displayName = "Badimp";
 export default Index;
+
+function getRandomInt() {
+	return Math.floor(Math.random() * 34);
+}
