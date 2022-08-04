@@ -2,7 +2,6 @@ import styles from '../styles/footer.module.css';
 import { IconButton } from '@mui/material';
 import { Icon } from '@iconify/react';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Footer = () => (
   <div className={styles.footer}>
@@ -15,11 +14,6 @@ const Footer = () => (
 	<a target="_blank" rel="noopener noreferrer" href={"https://github.com/ernest-lu"}>
 		<IconButton size="small">
 			<GitHubIcon />
-		</IconButton>
-	</a>
-	<a target="_blank" rel="noopener noreferrer" href={"https://www.linkedin.com/in/badint/"}>
-		<IconButton size="small">
-			<LinkedInIcon />
 		</IconButton>
 	</a>
   </div>
